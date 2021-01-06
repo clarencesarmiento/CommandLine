@@ -8,4 +8,4 @@
 - :musical_note: **Play** music and podcasts on supported apps
 - :floppy_disk: **Run** browsers and other applications
 - :iphone: **Open** websites
-- :folder: **Locate** computer files
+- :file: **Locate** computer files
