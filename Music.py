@@ -5,8 +5,8 @@ import getpass
 import Error
 
 username = getpass.getuser()
-music_list = []
 path = 'C:\\Users\\{}\\Music\\'.format(username)
+music_list = []
 
 
 def play_music(text):
@@ -25,6 +25,7 @@ def play_music(text):
                         music = text.split('play')[-1].strip().replace(' ', s)
                         if music in names.lower():
                             mixer.music.load(names)
+                            print(f'Playing {names}')
                             return mixer.music.play()
                         else:
                             pass
@@ -41,4 +42,7 @@ def play_music(text):
                 elif 'stop' in text:
                     return mixer.music.stop()
                 else:
-                    return Error.printline(f'[ERROR]: {text} is not available.\n')
+                    if len(text) > 0:
+                        return Error.printline(f'[ERROR]: {text} is not a music command.')
+                    else:
+                        return Error.printline(f'[ERROR]: Missing music command.')

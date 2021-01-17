@@ -1,4 +1,3 @@
-import pywhatkit as kit
 import webbrowser
 import os
 import tasks
@@ -15,7 +14,7 @@ def request():
     return user_request.lower()
 
 
-print('Lex 0.1 (Version 0.1/Python/November 24, 2020) [Clarence Sarmiento]')
+print('\nLex Command Line (Version 0.1/Python/November 24, 2020) [Clarence Sarmiento]')
 print('Type "-help", "-info" for more information.')
 while True:
     command = request()
@@ -32,11 +31,11 @@ while True:
         query = command.split('-search')[-1].strip()
         tasks.search(query)
     elif '-play' in command:
-        youtube = command.split('-play')[-1].strip()
-        kit.playonyt(youtube)
+        title = command.split('-play')[-1].strip()
+        tasks.youtube(title)
     elif '-file' in command:
         f_find.locate()
-    elif '-facebook' in command:
+    elif '-facebook' in command or '-fb' in command:
         url = "https://www.facebook.com/"
         webbrowser.get().open(url)
     elif '-messenger' in command:
@@ -51,7 +50,7 @@ while True:
     elif '-classroom' in command:
         url = 'https://classroom.google.com/u/1/h'
         webbrowser.get().open(url)
-    elif 'drive' in command:
+    elif '-drive' in command:
         url = 'https://drive.google.com/drive/u/0/my-drive?lfhs=2'
         webbrowser.get().open(url)
     elif '-ms' in command:
@@ -76,4 +75,4 @@ while True:
     elif '-exit' in command:
         exit()
     else:
-        Error.printline('[ERROR]: Unknown Command! Type "-help" for more information.\n')
+        Error.printline('[ERROR]: Unknown Command! Type "-help" for more information.')

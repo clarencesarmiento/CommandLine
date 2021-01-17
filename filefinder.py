@@ -21,7 +21,7 @@ def word(filename):
                     file_root = root
     if len(file_list) > 1:
         print(f'[SUCCESS]: {len(file_list)} files found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\docx\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.docx\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -30,10 +30,10 @@ def word(filename):
                 elif 0 == choice:
                     break
             except FileNotFoundError:
-                Error.printline('[ERROR|docx]: File unavailable.\n')
+                Error.printline('[ERROR|docx]: File unavailable.')
     elif len(file_list) == 1:
         print(f'[SUCCESS]: {len(file_list)} file found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\docx\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.docx\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -42,9 +42,9 @@ def word(filename):
                 elif 0 == choice:
                     break
             except FileNotFoundError:
-                Error.printline('[ERROR|docx]: File unavailable.\n')
+                Error.printline('[ERROR|docx]: File unavailable.')
     else:
-        Error.printline('[ERROR|docx]: 0 file found.\n')
+        Error.printline('[ERROR|docx]: 0 file found.')
 
 
 def powerpoint(filename):
@@ -61,7 +61,7 @@ def powerpoint(filename):
                     file_root = root
     if len(file_list) > 1:
         print(f'[SUCCESS]: {len(file_list)} files found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\pptx\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.pptx\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -70,10 +70,10 @@ def powerpoint(filename):
                 elif 0 == choice:
                     break
             except FileNotFoundError:
-                Error.printline('[ERROR|pptx]: File unavailable.\n')
+                Error.printline('[ERROR|pptx]: File unavailable.')
     elif len(file_list) == 1:
         print(f'[SUCCESS]: {len(file_list)} file found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\pptx\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.pptx\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -82,9 +82,9 @@ def powerpoint(filename):
                 elif 0 == choice:
                     break
             except FileNotFoundError:
-                Error.printline('[ERROR|pptx]: File unavailable.\n')
+                Error.printline('[ERROR|pptx]: File unavailable.')
     else:
-        Error.printline('[ERROR|pptx]: 0 file found.\n')
+        Error.printline('[ERROR|pptx]: 0 file found.')
 
 
 def portable_document_format(filename):
@@ -101,7 +101,7 @@ def portable_document_format(filename):
                     file_root = root
     if len(file_list) > 1:
         print('\n'f'[SUCCESS]: {len(file_list)} files found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\pdf\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.pdf\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -110,10 +110,10 @@ def portable_document_format(filename):
                 elif 0 == choice:
                     break
             except FileNotFoundError:
-                Error.printline('[ERROR|pdf]: File unavailable.\n')
+                Error.printline('[ERROR|pdf]: File unavailable.')
     elif len(file_list) == 1:
         print(f'[SUCCESS]: {len(file_list)} file found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\pdf\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.pdf\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -122,9 +122,9 @@ def portable_document_format(filename):
                 elif 0 == choice:
                     break
             except FileNotFoundError:
-                Error.printline('[ERROR|pdf]: File unavailable.\n')
+                Error.printline('[ERROR|pdf]: File unavailable.')
     else:
-        Error.printline('[ERROR|pdf]: 0 file found.\n')
+        Error.printline('[ERROR|pdf]: 0 file found.')
 
 
 def portable_network_graphics(filename):
@@ -141,7 +141,7 @@ def portable_network_graphics(filename):
                     file_root = root
     if len(file_list) > 1:
         print('\n'f'[SUCCESS]: {len(file_list)} files found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\PNG\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.PNG\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -153,7 +153,7 @@ def portable_network_graphics(filename):
                 Error.printline('[ERROR|PNG]: File unavailable.\n')
     elif len(file_list) == 1:
         print(f'[SUCCESS]: {len(file_list)} file found for {filename}.')
-        choice = int(input('Lex:\\User\\command\\PNG\\{}\\choice|return[0]> '.format(filename)))
+        choice = int(input('Lex:\\User\\command\\.PNG\\{}\\choice|return[0]> '.format(filename)))
         for file in file_list:
             try:
                 if choice == file_list.index(file) + 1:
@@ -162,26 +162,70 @@ def portable_network_graphics(filename):
                 elif 0 == choice:
                     break
             except FileNotFoundError:
-                Error.printline('[ERROR|PNG]: File unavailable.\n')
+                Error.printline('[ERROR|PNG]: File unavailable.')
     else:
-        Error.printline('[ERROR|PNG]: 0 file found.\n')
+        Error.printline('[ERROR|PNG]: 0 file found.')
+
+
+def text(filename):
+    file_list = []
+    global file_root, directory, name
+    for root, directories, files in os.walk(path, topdown=False):
+        for name in files:
+            # for specific file type
+            if name.endswith('.txt'):
+                if filename in name.lower():
+                    file_list.append(name)
+                    print('\n'f'Found in: {root}')
+                    print((len(file_list)), ')', name)
+                    file_root = root
+    if len(file_list) > 1:
+        print('\n'f'[SUCCESS]: {len(file_list)} files found for {filename}.')
+        choice = int(input('Lex:\\User\\command\\.txt\\{}\\choice|return[0]> '.format(filename)))
+        for file in file_list:
+            try:
+                if choice == file_list.index(file) + 1:
+                    directory = (os.path.join(file_root, file))
+                    return os.startfile(directory)
+                elif 0 == choice:
+                    break
+            except FileNotFoundError:
+                Error.printline('[ERROR|txt]: File unavailable.\n')
+    elif len(file_list) == 1:
+        print(f'[SUCCESS]: {len(file_list)} file found for {filename}.')
+        choice = int(input('Lex:\\User\\command\\.txt\\{}\\choice|return[0]> '.format(filename)))
+        for file in file_list:
+            try:
+                if choice == file_list.index(file) + 1:
+                    directory = (os.path.join(file_root, file))
+                    return os.startfile(directory)
+                elif 0 == choice:
+                    break
+            except FileNotFoundError:
+                Error.printline('[ERROR|txt]: File unavailable.')
+    else:
+        Error.printline('[ERROR|txt]: 0 file found.')
 
 
 def locate():
     filetype = str(input('Lex:\\User\\command\\Filetype> ')).lower()
-    if 'docx' in filetype:
-        filename = str(input('Lex:\\User\\command\\docx\\Filename> '))
+    if '.docx' in filetype:
+        filename = str(input('Lex:\\User\\command\\.docx\\Filename> '))
         word(filename)
-    elif 'pptx' in filetype:
+    elif '.pptx' in filetype:
         filename = str(input('Lex:\\User\\command\\pptx\\Filename> '))
         powerpoint(filename)
-    elif 'pdf' in filetype:
+    elif '.pdf' in filetype:
         filename = str(input('Lex:\\User\\command\\pdf\\Filename> '))
         portable_document_format(filename)
-    elif 'png' in filetype:
+    elif '.png' in filetype:
         filename = str(input('Lex:\\User\\command\\PNG\\Filename> '))
         portable_network_graphics(filename)
+    elif '.txt' in filetype:
+        filename = str(input('Lex:\\User\\command\\txt\\Filename> '))
+        text(filename)
     elif '-exit' in filetype:
         exit()
     else:
-        Error.printline('[ERROR]: Filetype unavailable.\n')
+        Error.printline('[ERROR]: Filetype unavailable. Type "-help" for more information '
+                        'or try adding "." at the beginning of the filetype.')

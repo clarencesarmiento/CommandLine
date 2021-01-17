@@ -18,18 +18,19 @@ def help_command():
         -classroom                          > Google classroom
         -drive                              > Google drive
         -ms (app)                           > Microsoft applications
-        -note (text)                        > Take a note
+        -note                               > Take a note
         -open (app)                         > Open applications
         -close (app)                        > Close applications
         -clear                              > Clear terminal
+        -info                               > Shows time, date, weather and temperature
         -help                               > Shows this message and exit
         -exit                               > Exit Lex Command Line
 
         [Music Commands]                    [Filetype]
-        > play (title)                      > docx
-        > random                            > pptx
-        > pause                             > pdf
-        > unpause                           
+        > play (title)                      > .docx
+        > random                            > .pptx
+        > pause                             > .pdf
+        > unpause                           > .txt
         > stop
         > list
     """)

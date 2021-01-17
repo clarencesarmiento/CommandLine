@@ -6,6 +6,7 @@ import webbrowser
 import wolframalpha
 import wikipedia
 import subprocess
+import pywhatkit as kit
 import os
 import getpass
 import Error
@@ -24,25 +25,36 @@ def info():
     temp = weather.temperature(unit='celsius')
     status = weather.detailed_status
     cleaned_temp_data = int(temp['temp'])
-    return print(f'\n{Cdate.day_of_week(today.weekday())} {Cdate.month_today(today.month)} {today.day},{today.year}\n'
+    return print(f'\nDate: {Cdate.day_of_week(today.weekday())} {Cdate.month_today(today.month)} \
+{today.day},{today.year}\n'
                  f'Time: {time_12hour_format}\n'
                  f'Temperature: {cleaned_temp_data} degree celsius\n'
                  f'Status: {status}')
 
 
+def youtube(title):
+    if len(title) > 0:
+        kit.playonyt(title)
+    else:
+        Error.printline('[ERROR]: No input found.')
+
+
 def search(text):
     query = text
-    try:
+    if len(text) > 0:
         try:
-            res = client.query(query)
-            result = next(res.results).text
-            return print(f'[RESULT|Wolframalpha]: {result}')
-        except StopIteration:
-            result = wikipedia.summary(query, sentences=2)
-            return print(f'[RESULT|Wikipedia]: {result}')
-    except wikipedia.exceptions.DisambiguationError:
-        url = "https://google.com/search?q=" + query
-        return webbrowser.get().open(url)
+            try:
+                res = client.query(query)
+                result = next(res.results).text
+                return print(f'[RESULT|Wolframalpha]: {result}')
+            except StopIteration:
+                result = wikipedia.summary(query, sentences=2)
+                return print(f'[RESULT|Wikipedia]: {result}')
+        except wikipedia.exceptions.DisambiguationError:
+            url = "https://google.com/search?q=" + query
+            return webbrowser.get().open(url)
+    else:
+        Error.printline('[ERROR]: No input found.')
 
 
 def google(text):
@@ -88,8 +100,10 @@ def microsoft(text):
         except FileNotFoundError:
             return subprocess.Popen(r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE')
     else:
-
-        return Error.printline(f'[ERROR]: {text} not available.\n')
+        if len(text) > 0:
+            return Error.printline(f"[ERROR]: {text} is not available.")
+        else:
+            return Error.printline(f"[ERROR]: No input found.")
 
 
 def applications(text):
@@ -100,7 +114,7 @@ def applications(text):
             return subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe')
     elif 'discord' in text:
         return subprocess.Popen(r'C:\Users\{}\AppData\Local\Discord\app-0.0.308\Discord.exe'.format(username))
-    elif 'windows explorer' in text:
+    elif 'windows explorer' in text or 'explorer' in text:
         return subprocess.Popen(r'C:\Windows\explorer.exe')
     elif 'premiere' in text:
         try:
@@ -126,7 +140,10 @@ def applications(text):
     elif 'groove' in text:
         Player.play()
     else:
-        return Error.printline(f'[ERROR]: {text} is not available.\n')
+        if len(text) > 0:
+            return Error.printline(f"[ERROR]: {text} is not available.")
+        else:
+            return Error.printline(f"[ERROR]: No input found.")
 
 
 def take_note():
@@ -150,7 +167,10 @@ def computer(text):
     elif 'videos' in text:
         return os.startfile(r'C:\Users\{}\Videos'.format(username))
     else:
-        return Error.printline(f"[ERROR]: {text} is not available.\n")
+        if len(text) > 0:
+            return Error.printline(f"[ERROR]: {text} is not available.")
+        else:
+            return Error.printline(f"[ERROR]: No input found.")
 
 
 def close(text):
@@ -176,5 +196,12 @@ def close(text):
         return os.system('taskkill/f /im Discord.exe')
     elif 'groove' in text:
         return os.system('taskkill/f /im Music.UI.exe')
+    elif 'adobe' in text:
+        return os.system('taskkill/f /im AcroRd32.exe')
+    elif 'explorer' in text or 'windows explorer' in text:
+        return os.system('taskkill/f /im explorer.exe & start explorer')
     else:
-        return Error.printline(f'[ERROR]: {text} is not available.\n')
+        if len(text) > 0:
+            return Error.printline(f"[ERROR]: {text} is not available.")
+        else:
+            return Error.printline(f"[ERROR]: No input found.")

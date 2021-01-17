@@ -27,6 +27,7 @@ def month_today(month):                         # Getting Months
         pass
     return month
 
+
 def day_of_week(day):                           # Getting the day of the week
     if day == 0:
         day = "Monday"
